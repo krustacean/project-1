@@ -18,11 +18,11 @@ Wireframes
 
 #### Landing Page:
 
-![Landing Page](https://raw.githubusercontent.com/krustacean/project-1/master/planning/landing%20page.jpg)
+![Landing Page](https://glwx.mybalsamiq.com/mockups/3687112.png?key=38d3f33da80d3605801f3ac72636f6de0be51be3)
 
 #### Main Page:
 
-![Main Page](https://raw.githubusercontent.com/krustacean/project-1/master/planning/base%20app.jpg)
+![Main Page](https://glwx.mybalsamiq.com/mockups/3687113.png?key=fd9cc39cafacde7e1fa7b9ada8a493b9125e1b04)
 
 
 ERDs
