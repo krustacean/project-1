@@ -1,2 +1,4 @@
-# project-1
-General Assembly Student Project
+# Project 1
+A General Assembly Student Project
+
+By Riley Gelwicks
