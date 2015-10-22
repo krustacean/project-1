@@ -15,9 +15,9 @@ My app will allow users to easily record things they have done in the past and t
 
 Wireframes
 ============
-[](https://raw.githubusercontent.com/krustacean/project-1/master/planning/landing%20page.jpg)
+Landing Page:![Landing Page](https://raw.githubusercontent.com/krustacean/project-1/master/planning/landing%20page.jpg)
 
-[](https://raw.githubusercontent.com/krustacean/project-1/master/planning/base%20app.jpg)
+Main Page:![Main Page](https://raw.githubusercontent.com/krustacean/project-1/master/planning/base%20app.jpg)
 
 
 
