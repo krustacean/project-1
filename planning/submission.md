@@ -26,6 +26,6 @@ Wireframes
 
 
 
-
 ERDs
 =============
+![Data Model](erd.jpg)
