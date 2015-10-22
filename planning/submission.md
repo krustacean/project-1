@@ -25,7 +25,11 @@ Wireframes
 ![Main Page](https://raw.githubusercontent.com/krustacean/project-1/master/planning/base%20app.jpg)
 
 
-
 ERDs
 =============
 ![Data Model](erd.jpg)
+
+
+Milestones
+===========
+- [ ] Get Approved
