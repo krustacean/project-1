@@ -10,11 +10,16 @@ Artemis has always wanted to create a diary and yet just hasn't gotten around to
 Scope
 ============
 
-My app will allow users to easily record things they have done in the past and things would like to complete in the future. My stretch goal is to use the Google Calendar Api to import new users old calendar entries and also edit and add current calendar entries.
+My app will allow users to easily record things they have done in the past and things would like to complete in the future. My stretch goal is to use the [Google calendar api](https://developers.google.com/google-apps/calendar/quickstart/nodejs) to import new users old calendar entries and also edit and add current calendar entries.
 
 
 Wireframes
 ============
+[](https://raw.githubusercontent.com/krustacean/project-1/master/planning/landing%20page.jpg)
+
+[](https://raw.githubusercontent.com/krustacean/project-1/master/planning/base%20app.jpg)
+
+
 
 
 ERDs
