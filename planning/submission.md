@@ -33,3 +33,7 @@ ERDs
 Milestones
 ===========
 - [ ] Get Approved
+
+Project Planning
+============
+Used [Pivotal Tracker](https://www.pivotaltracker.com/projects/1455590)
