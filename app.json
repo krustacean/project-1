@@ -1,0 +1,8 @@
+{
+  "name": "reverse-to-do",
+  "description": "A barebones Node.js app using Express 4",
+  "repository": "https://github.com/krustacean/project-1",
+  "logo": "",
+  "keywords": ["node", "express"],
+  "image": ""
+}
