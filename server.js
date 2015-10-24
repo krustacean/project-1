@@ -11,8 +11,8 @@ app.use("/static", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //start server
-app.listen(8080, function (){
-  console.log("listening on port 8080");
+app.listen(5000, function (){
+  console.log("listening on port 5000");
 });
 
 app.get("/", function (req, res){
