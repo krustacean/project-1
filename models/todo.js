@@ -9,8 +9,6 @@ var TodoSchema = new Schema({
     count: Number,
     status: Number,
     dueDate: Date,
-
-
 });
 
 var Todo = mongoose.model('Todo', TodoSchema);
