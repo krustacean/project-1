@@ -4,12 +4,14 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var session = require('express-session');
-//var db = require('./models'); TODO
+var db = require('./models');
+var favicon = require('express-favicon');
 
 ///set app dependencies
 app.set('view engine', 'ejs')
 app.use("/static", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 //start server
 app.listen(process.env.PORT || 5000, function (){
