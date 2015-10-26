@@ -17,9 +17,12 @@ app.listen(process.env.PORT || 5000, function (){
 
 //root route
 app.get("/", function (req, res){
-  res.send('We be jammin!')
+  res.render('index')
 });
 
+app.get('/about', function(req, res){
+  res.render('about')
+})
 //login check
 app.get('/users', function(req, res){
   res.send('you just logged in');
@@ -31,17 +34,17 @@ app.post('/users', function(req,res){
 });
 
 //view all to-dos
-app.get('/list', function(req,res){
-  res.send('this is where your posts will live')
+app.get('/home', function(req,res){
+  res.render('list')
 });
 
 //add a new todo
-app.post('/list', function(req,res){
+app.post('/home', function(req,res){
   res.send('you just created a new todo')
 })
 
 //remove a todo item from a user
-app.delete('/list/:id', function(req,res){
+app.delete('/home/:id', function(req,res){
   id = req.params.id;
   res.send('you just deleted post: ' + id)
 })
