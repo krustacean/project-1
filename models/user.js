@@ -4,7 +4,10 @@ var Todo = require('./todo')
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  email: String,
+  email: {
+    type: String,
+    unique: true
+  }
   passwordDigest: String,
   todos: [Todo.schema]
 });

@@ -2,9 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var TodoSchema = new Schema({
-    author_id: String,
     content: String,
-    created: Date,
+    timestamp : {
+      type : Date,
+      default: Date.now },
     updated: Date,
     count: Number,
     status: Number,
