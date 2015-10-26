@@ -24,27 +24,28 @@ app.get('/about', function(req, res){
   res.render('about')
 })
 //login check
-app.get('/users', function(req, res){
+app.get('api/users/:id', function(req, res){
   res.send('you just logged in');
 });
 
 //create a new user
-app.post('/users', function(req,res){
-  res.send('User Posted')
+app.post('api/users', function(req,res){
+  res.send('User Created')
 });
 
-//view all to-dos
-app.get('/home', function(req,res){
+//view all of a user's to-dos
+app.get('/home/:id', function(req,res){
   res.render('list')
 });
 
 //add a new todo
-app.post('/home', function(req,res){
-  res.send('you just created a new todo')
+app.post('/home/:id/todos', function(req,res){
+  var user = req.params.id;
+  res.send('you just created a new todo in this user"s list: ' + id)
 })
 
 //remove a todo item from a user
-app.delete('/home/:id', function(req,res){
+app.delete('api/home/:id', function(req,res){
   id = req.params.id;
   res.send('you just deleted post: ' + id)
 })
