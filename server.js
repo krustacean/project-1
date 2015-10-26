@@ -3,6 +3,7 @@ var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var session = require('express-session');
 //var db = require('./models'); TODO
 
 ///set app dependencies
@@ -35,6 +36,10 @@ app.post('api/users', function(req,res){
 
 //view all of a user's to-dos
 app.get('/home/:id', function(req,res){
+  res.render('list')
+});
+
+app.get('/home', function(req,res){
   res.render('list')
 });
 
