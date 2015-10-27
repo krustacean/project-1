@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 var Todo = require('./todo')
+var bcrypt = require('bcrypt')
+
+mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost/todo_list" )
+
 
 var Schema = mongoose.Schema;
 
@@ -7,7 +11,7 @@ var userSchema = new Schema({
   email: {
     type: String,
     unique: true
-  }
+  },
   passwordDigest: String,
   todos: [Todo.schema]
 });
