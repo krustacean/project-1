@@ -76,7 +76,8 @@ app.post('/api/signup', function(req,res){
 
 //view all of a user's to-dos
 app.get('/home/:id', function(req,res){
-  res.render('list')
+  //userId = req.params.id;
+  res.json('res')
 });
 
 app.get('/home', function(req,res){
