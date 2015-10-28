@@ -42,14 +42,25 @@ app.get('/about', function(req, res){
   res.render('about')
 })
 //login check
-app.get('/api/users/', function(req, res){
-  res.send('you just logged in');
+app.post('/api/login', function(req, res){
+  console.log('User login',req.body.email, req.body.password);
+  user.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
+    if (err){
+      console.log(err);
+      res.status(500).send();
+    } else {
+      console.log('setting sesstion user id ', loggedInUser._id);
+      req.session.userId = loggedInUser._id;
+      res.redirect('/home');
+    }
+  });
 });
 
 //create a new user
-app.post('/api/users', function(req,res){
+app.post('/api/signup', function(req,res){
   console.log(req.body);
   user.createSecure(req.body.email, req.body.password, function (err, newUser) {
+    if (err) {console.log(err)}
     console.log('New user created', newUser)
     req.session.userId = newUser._id;
     console.log('newuserid: ', newUser._id)
@@ -95,10 +106,17 @@ app.get('/login', function (req, res){
   res.render('login')
 })
 
+app.get('/signup', function (req, res){
+  res.render('signup')
+})
+
 // log a user out
 app.get('/logout', function (req, res) {
   // remove the session user id
-  req.session.userId = null;
-  // redirect to login (for now)
+  req.session.destroy(function(err) {
+  if (err) {console.log(err)}
   res.redirect('/login');
+  })
+  // redirect to login (for now)
+
 });
