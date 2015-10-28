@@ -35,7 +35,11 @@ app.listen(process.env.PORT || 5000, function (){
 
 //root route
 app.get("/", function (req, res){
-  res.render('index')
+  if (req.session.userId === undefined) {
+		res.render('index');
+	} else {
+		res.redirect('/home');
+	}
 });
 
 app.get('/about', function(req, res){
@@ -62,6 +66,7 @@ app.post('/api/signup', function(req,res){
   user.createSecure(req.body.email, req.body.password, function (err, newUser) {
     if (err) {console.log(err)}
     console.log('New user created', newUser)
+    //TODO add the seed callback module
     req.session.userId = newUser._id;
     console.log('newuserid: ', newUser._id)
     console.log('session userid:', req.session.userId)
@@ -71,7 +76,8 @@ app.post('/api/signup', function(req,res){
 
 //view all of a user's to-dos
 app.get('/home/:id', function(req,res){
-  res.render('list')
+  //userId = req.params.id;
+  res.json('res')
 });
 
 app.get('/home', function(req,res){

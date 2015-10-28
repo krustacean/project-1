@@ -8,17 +8,19 @@
   <div class="container">
     <div class="col-md-8 col-md-offset-2">
       <h3><%=user.email %>'s List<small></small></h3>
-      <div id="future-todos" style="overflow:auto; height:300px;">
-        <ul class="list-group"></ul>
-      </div>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="What did you just do?" name="todo">
+        <input type="text" class="form-control" id="newTodo" placeholder="What did you just do?" name="content">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">Submit</button>
         </span>
       </div> <!--input-group -->
-      <div id="past-todos" style="overflow:auto; height:300px;">
-        <ul class="list-group"></ul>
+      <div id="past-todos" style="overflow:auto; height:500px;">
+        <ul class="list-group">
+          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
+          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
+          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
+          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
+        </ul>
       </div>
     </div> <!--col-md-6 -->
   </div> <!--container -->
