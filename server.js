@@ -50,8 +50,10 @@ app.get('/api/users/', function(req, res){
 app.post('/api/users', function(req,res){
   console.log(req.body);
   user.createSecure(req.body.email, req.body.password, function (err, newUser) {
-    console.log('New user created',newUser)
+    console.log('New user created', newUser)
     req.session.userId = newUser._id;
+    console.log('newuserid: ', newUser._id)
+    console.log('session userid:', req.session.userId)
     res.redirect('/home');
   });
 });
@@ -62,8 +64,20 @@ app.get('/home/:id', function(req,res){
 });
 
 app.get('/home', function(req,res){
-  res.render('list')
+  var userId = req.session.userId;
+  user.findOne({_id: userId}, function (err, currentUser) {
+    if (err){
+      console.log('database error: ', err);
+      res.redirect('/login');
+    } else if (currentUser === null) {
+      res.redirect('/login');
+    } else {
+      console.log('loading profile of logged in user');
+      res.render('list', {user: currentUser});
+    }
+  });
 });
+
 
 //add a new todo
 app.post('/home/:id/todos', function(req,res){
