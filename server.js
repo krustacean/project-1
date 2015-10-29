@@ -36,7 +36,7 @@ app.listen(process.env.PORT || 5000, function (){
 //root route
 app.get("/", function (req, res){
   if (req.session.userId === undefined) {
-		res.render('index');
+		res.render('index', {user: null});
 	} else {
 		res.redirect('/home');
 	}
@@ -151,12 +151,12 @@ app.post('/api/todos', function(req,res){
 
 //render the login screen
 app.get('/login', function (req, res){
-  res.render('login')
+  res.render('login', {user: null})
 })
 
 //render a separate signup screen
 app.get('/signup', function (req, res){
-  res.render('signup')
+  res.render('signup', {user: null})
 })
 
 // log a user out
