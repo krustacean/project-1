@@ -63,7 +63,7 @@ app.post('/api/login', function(req, res){
 //create a new user
 app.post('/api/signup', function(req,res){
   console.log(req.body);
-  user.createSecure(req.body.email, req.body.password, function (err, newUser) {
+  user.createSecure(req.body.email, req.body.password, req.body.name, function (err, newUser) {
     if (err) {console.log(err)}
     console.log('New user created', newUser)
     //TODO add the seed callback module

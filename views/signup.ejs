@@ -8,11 +8,14 @@
 
    <form class="form-signin" action="/api/signup" method="post" >
      <h2 class="form-signin-heading">Please Register</h2>
+     <label for="inputUserName" class="sr-only">Pick a user name</label>
+     <input id="inputUserName" name="name" class="form-control" placeholder="Pick a user name" autofocus>
+     <label for="inputPassword" class="sr-only">Password</label>
      <label for="inputEmail" class="sr-only">Email address</label>
-     <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+     <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required>
      <label for="inputPassword" class="sr-only">Password</label>
      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+     <button class="btn btn-lg btn-primary btn-block" type="submit">Register Now</button>
      <div class="g-signin2" data-onsuccess="onSignIn">Sign In With Google</div>
    </form>
 

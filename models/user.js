@@ -13,11 +13,12 @@ var userSchema = new Schema({
     unique: true
   },
   passwordDigest: String,
-  todos: [Todo.schema]
+  todos: [Todo.schema],
+  name: String
 });
 
 // use form data to create db user, with a hashed and salted password
-userSchema.statics.createSecure = function (email, password, callback) {
+userSchema.statics.createSecure = function (email, password, name, callback) {
   // `this` references our User model
   // store it in variable `UserModel` because `this` changes context in nested callbacks
 
@@ -31,7 +32,8 @@ userSchema.statics.createSecure = function (email, password, callback) {
       // create the new user (save to db) with hashed password
       UserModel.create({
         email: email,
-        passwordDigest: hash
+        passwordDigest: hash,
+        name: name
       }, callback);
     });
   });
