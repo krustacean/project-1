@@ -76,11 +76,24 @@ app.post('/api/signup', function(req,res){
 });
 
 //view all of a user's to-dos
-app.get('/home/:id', function(req,res){
-  //userId = req.params.id;
-  res.json('res')
+app.get('/api/user/:id/todos', function(req,res){
+  userId = req.params.id;
+  user.findOne({_id: userId}, function (err, foundUser) {
+    res.json(foundUser.todos);
+  });
 });
 
+//api call to get a single todo for a user
+app.get('/api/user/:id/todos/:todoId', function(req,res){
+  userId = req.params.id;
+  todoId = req.params.todoId;
+  user.findOne({_id: userId}, function (err, foundUser) {
+    var foundToDo = foundUser.todos.id(todoId);
+    res.json(foundToDo);
+  });
+});
+
+//check if user is logged in then show them their list of todos
 app.get('/home', function(req,res){
   var userId = req.session.userId;
   user.findOne({_id: userId}, function (err, currentUser) {
@@ -116,10 +129,12 @@ app.delete('api/home/:id', function(req,res){
   res.send('you just deleted post: ' + id)
 })
 
+//render the login screen
 app.get('/login', function (req, res){
   res.render('login')
 })
 
+//render a separate signup screen
 app.get('/signup', function (req, res){
   res.render('signup')
 })
