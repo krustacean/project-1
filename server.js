@@ -101,6 +101,8 @@ app.put('/api/user/:id/todos/:todoId/repeat', function(req,res){
     console.log("Foundtodo",foundToDo);
     foundToDo.timestamp = Date.now();
     foundToDo.count += 1;
+    var removedTodo = foundToDo.remove();
+    foundUser.todos.unshift(removedTodo);
     foundUser.save(function(err, savedList){
       res.json(savedList);
     })
