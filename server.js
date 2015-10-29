@@ -113,7 +113,15 @@ app.put('/api/user/:id/todos/:todoId/repeat', function(req,res){
 app.delete('/api/user/:id/todos/:todoId', function(req,res){
   userId = req.params.id;
   todoId = req.params.todoId;
-  res.send('you just deleted post: ' + id)
+  user.findOne({_id: userId}, function (err, foundUser) {
+    if (err) {res.send('Server Error Can"t delete todo')}
+    var foundToDo = foundUser.todos.id(todoId);
+    foundToDo.remove();
+    console.log('User deleted this todo: ', foundToDo)
+    foundUser.save(function(err, savedList){
+      res.json(savedList);
+    })
+  });
 })
 
 
