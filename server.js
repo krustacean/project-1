@@ -93,6 +93,15 @@ app.get('/api/user/:id/todos/:todoId', function(req,res){
   });
 });
 
+//remove a todo item from a single user
+app.delete('/api/user/:id/todos/:todoId', function(req,res){
+  userId = req.params.id;
+  todoId = req.params.todoId;
+  res.send('you just deleted post: ' + id)
+})
+
+
+
 //check if user is logged in then show them their list of todos
 app.get('/home', function(req,res){
   var userId = req.session.userId;
@@ -123,11 +132,6 @@ app.post('/api/todos', function(req,res){
   });
 });
 
-//remove a todo item from a user
-app.delete('api/home/:id', function(req,res){
-  id = req.params.id;
-  res.send('you just deleted post: ' + id)
-})
 
 //render the login screen
 app.get('/login', function (req, res){
@@ -146,6 +150,4 @@ app.get('/logout', function (req, res) {
   if (err) {console.log(err)}
   res.redirect('/login');
   })
-  // redirect to login (for now)
-
 });
