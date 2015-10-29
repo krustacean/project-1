@@ -34,8 +34,7 @@
                   </button>
                 </div>
                 <p><%= user.todos[i].content %></p>
-                <%var date = new Date(user.todos[i].timestamp)%>
-                <p><small><i><%= date.toLocaleDateString() %> </i></p></small>
+                <p><small><i><%= moment(user.todos[i].timestamp).fromNow() %></i></p></small>
               </div> <!--panel body -->
             </div>
           </li>
