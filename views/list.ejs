@@ -9,7 +9,7 @@
       <% function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
       }  %>
-      <h3><%= capitalizeFirstLetter(user.name) %>'s List<small></small></h3>
+      <h3 id="user" data-id="<%=user._id%>"><%= capitalizeFirstLetter(user.name) %>'s List<small></small></h3>
       <div class="input-group">
         <input type="text" class="form-control" id="newTodo" placeholder="What did you just do?" name="content">
         <span class="input-group-btn">
@@ -24,7 +24,7 @@
               <div class="panel-body">
                 <div class="button-group pull-right">
                   <button type="button" name="repeat-button" id="repeat-button" class="btn btn-xs edit" data-id="<%= user.todos[i]._id %>">
-                    <span class="glyphicon glyphicon-repeat"></span>
+                    <a href="/api/user/<%=user._id%>/todos/<%= user.todos[i]._id %>/repeat"<span class="glyphicon glyphicon-repeat"></span></a>
                   </button>
                   <button type="button" name="edit-button" class="btn btn-xs edit" data-id="<%= user.todos[i]._id %>">
                     <span class="glyphicon glyphicon-edit"></span>
