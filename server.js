@@ -125,7 +125,7 @@ app.post('/api/todos', function(req,res){
   var userId = req.session.userId;
   var newTodo = new todo({content:req.body.content});
   user.findOne({_id: userId}, function (err, foundUser) {
-   foundUser.todos.push(newTodo);
+   foundUser.todos.unshift(newTodo);
    foundUser.save(function (err, savedList) {
      res.json(savedList);
    });
