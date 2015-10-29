@@ -10,7 +10,7 @@ $( document ).ready(function() {
       data: $('#newTodo').serialize()
     })
     .done(function( msg ) {
-    alert( "Data Saved: " + msg );
+     console.log(msg);
   });
 });
 
@@ -40,4 +40,9 @@ $( document ).ready(function() {
       form.submit();
     }
   });
+
+/************************************
+Helper Functions
+************************************/
+
 });
