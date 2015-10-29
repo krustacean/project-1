@@ -6,6 +6,7 @@ var mongoose = require("mongoose");
 var session = require('express-session');
 var user = require('./models/user');
 var favicon = require('express-favicon');
+var todo = require('./models/todo');
 
 //load dotenv
 require('dotenv').load();
@@ -97,10 +98,17 @@ app.get('/home', function(req,res){
 
 
 //add a new todo
-app.post('/home/:id/todos', function(req,res){
-  var user = req.params.id;
-  res.send('you just created a new todo in this user"s list: ' + id)
-})
+app.post('/api/todos', function(req,res){
+  console.log('New Todo post request to api/todos', req.body.content)
+  var userId = req.session.userId;
+  var newTodo = new todo({content:req.body.content});
+  user.findOne({_id: userId}, function (err, foundUser) {
+   foundUser.todos.push(newTodo);
+   foundUser.save(function (err, savedList) {
+     res.json(savedList);
+   });
+  });
+});
 
 //remove a todo item from a user
 app.delete('api/home/:id', function(req,res){

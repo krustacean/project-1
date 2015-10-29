@@ -2,6 +2,19 @@ console.log('app.js loaded')
 
 
 $( document ).ready(function() {
+  //post new todos from the list submit button
+  $('#todoButton').on('click', function(e){
+    $.ajax({
+      method: "POST",
+      url: "api/todos",
+      data: $('#newTodo').serialize()
+    })
+    .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  });
+});
+
+
   //jquery validate sign in form validation
   $(".form-signin").validate({
     rules: {

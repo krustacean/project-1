@@ -5,9 +5,13 @@ var TodoSchema = new Schema({
     content: String,
     timestamp : {
       type : Date,
-      default: Date.now },
+      default: Date.now
+    },
     updated: Date,
-    count: Number,
+    count: {
+      type: Number,
+      default: 1
+    },
     status: Number,
     dueDate: Date,
 });

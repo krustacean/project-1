@@ -14,15 +14,20 @@
       <div class="input-group">
         <input type="text" class="form-control" id="newTodo" placeholder="What did you just do?" name="content">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Submit</button>
+          <button class="btn btn-default" type="button" id="todoButton">Submit</button>
         </span>
       </div> <!--input-group -->
       <div id="past-todos" style="overflow:auto; height:500px;">
         <ul class="list-group">
-          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
-          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
-          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
-          <li><div class="panel panel-default"><div class="panel-body">Basic panel example</div></div></li>
+          <%for (var i = 0; i < user.todos.length; i++) {%>
+          <li>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <%= user.todos[i].content %>
+              </div>
+            </div>
+          </li>
+          <%}%>
         </ul>
       </div>
     </div> <!--col-md-6 -->
