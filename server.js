@@ -7,8 +7,7 @@ var session = require('express-session');
 var user = require('./models/user');
 var favicon = require('express-favicon');
 var todo = require('./models/todo');
-
-//load dotenv
+var moment = require('moment');
 require('dotenv').load();
 
 
@@ -93,6 +92,23 @@ app.get('/api/user/:id/todos/:todoId', function(req,res){
   });
 });
 
+//update entry when action is repeated
+app.put('/api/user/:id/todos/:todoId/repeat', function(req,res){
+  userId = req.params.id;
+  todoId = req.params.todoId;
+  user.findOne({_id: userId}, function (err, foundUser) {
+    var foundToDo = foundUser.todos.id(todoId);
+    console.log("Foundtodo",foundToDo);
+    foundToDo.timestamp = Date.now();
+    foundToDo.count += 1;
+    foundUser.save(function(err, savedList){
+      res.json(savedList);
+    })
+  });
+});
+
+
+
 //remove a todo item from a single user
 app.delete('/api/user/:id/todos/:todoId', function(req,res){
   userId = req.params.id;
@@ -113,7 +129,7 @@ app.get('/home', function(req,res){
       res.redirect('/login');
     } else {
       console.log('loading profile of logged in user');
-      res.render('list', {user: currentUser});
+      res.render('list', {user: currentUser, moment: moment});
     }
   });
 });
