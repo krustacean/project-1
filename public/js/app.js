@@ -2,6 +2,8 @@ console.log('app.js loaded')
 
 
 $( document ).ready(function() {
+
+
   //post new todos from the list submit button
   $('#todoButton').on('click', function(e){
     $.ajax({
@@ -11,8 +13,15 @@ $( document ).ready(function() {
     })
     .done(function( msg ) {
      console.log(msg);
+   });
   });
+
+  //attach listerner to the delete button
+
+  $(document).on('click', '.delete',  function(){
+  deletePost(this);
 });
+
 
 
   //jquery validate sign in form validation
@@ -41,8 +50,27 @@ $( document ).ready(function() {
     }
   });
 
+
+
+});
 /************************************
 Helper Functions
 ************************************/
 
-});
+
+//delete todos
+function deletePost(context) {
+  console.log('context in deletePost: ', context);
+  // context is the button that was clicked
+  var userId = $('#user').data().id;
+  var todoId = $(context).data().id;
+  console.log(todoId);
+  $.ajax({
+    url: '/api/user/' + userId + '/todos/' + todoId,
+    type: 'DELETE',
+    success: function(response) {
+      console.log('removed' + response)
+      $(context).closest('li').remove();
+    }
+  });
+}
