@@ -16,19 +16,20 @@
           <button class="btn btn-default" type="button" id="todoButton">Submit</button>
         </span>
       </div> <!--input-group -->
-      <div id="past-todos" style="overflow:auto; height:500px;">
+      <div id="past-todos">
         <ul class="list-group">
           <%for (var i = 0; i < user.todos.length; i++) {%>
           <li>
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="button-group pull-right">
+                  <span class="badge"><%=user.todos[i].count%>x</span>
                   <button type="button" name="repeat-button" id="repeat-button" class="btn btn-xs edit" data-id="<%= user.todos[i]._id %>">
                     <a href="/api/user/<%=user._id%>/todos/<%= user.todos[i]._id %>/repeat" method="put"><span class="glyphicon glyphicon-repeat"></span></a>
                   </button>
-                  <button type="button" name="edit-button" class="btn btn-xs edit" data-id="<%= user.todos[i]._id %>">
+                  <!-- <button type="button" name="edit-button" class="btn btn-xs edit" data-id="<%= user.todos[i]._id %>">
                     <span class="glyphicon glyphicon-edit"></span>
-                  </button>
+                  </button> -->
                   <button type="button" name="del-button" class="btn btn-xs delete" data-id="<%= user.todos[i]._id %>">
                     <span class="glyphicon glyphicon-remove"></span>
                   </button>

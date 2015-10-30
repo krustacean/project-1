@@ -5,8 +5,36 @@ html {
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: lightblue;
   margin-bottom: 60px;
+}
+
+ul {
+  list-style: none;
+}
+#user {
+  margin-top: 50px;
+}
+
+#repeat-button {
+  text-decoration-color: none;
+}
+
+#past-todos {
+  margin-top: 20px;
+}
+
+.navbar-header {
+  margin-top: auto;
+}
+
+img.first-slide{
+  height: 30%;
+  margin: 0 auto;
+}
+
+.carousel-caption {
+  text-shadow:  0 3px 4px rgba(0 , 0, 0, 0.8);
 }
 
 .form-signin {
