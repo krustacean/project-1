@@ -44,6 +44,8 @@ Used [Pivotal Tracker](https://www.pivotaltracker.com/projects/1455590)
 
 Stack
 ============
+- bootstrap3
+- jquery
 - bcrypt
 - body-parser
 - dotenv
