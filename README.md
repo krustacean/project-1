@@ -1,5 +1,6 @@
 reversetodo.ninja
 =================
+reversetodo.ninja is a simple life logging application that let's you see the things you've done, how many times you've done them and the last time that you did them. You can create a user account and then track your own todos as you make them!
 
 heroku
 ==========
@@ -50,4 +51,4 @@ Stack
 - express
 - express-session
 - express-favicon
-- moment.js
+- moment.js (server and client side)
