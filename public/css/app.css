@@ -28,6 +28,14 @@ ul {
   margin-top: auto;
 }
 
+.carousel-inner {
+  margin-top: 40px;
+}
+
+button a {
+  color: black;
+}
+
 img.first-slide{
   height: 30%;
   margin: 0 auto;
