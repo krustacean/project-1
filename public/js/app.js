@@ -12,11 +12,9 @@ $( document ).ready(function() {
       data: $('#newTodo').serialize()
     })
     .done(function( msg ) {
-     console.log(msg);
-     console.log(msg.todos[0].content);
      var newPost = writePost(msg);
-     console.log(newPost)
      $('.list-group').prepend(newPost);
+     $('#newTodo').val('');
    });
   });
 
