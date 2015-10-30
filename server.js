@@ -93,7 +93,7 @@ app.get('/api/user/:id/todos/:todoId', function(req,res){
 });
 
 //update entry when action is repeated
-app.put('/api/user/:id/todos/:todoId/repeat', function(req,res){
+app.get('/api/user/:id/todos/:todoId/repeat', function(req,res){
   userId = req.params.id;
   todoId = req.params.todoId;
   user.findOne({_id: userId}, function (err, foundUser) {
@@ -104,7 +104,7 @@ app.put('/api/user/:id/todos/:todoId/repeat', function(req,res){
     var removedTodo = foundToDo.remove();
     foundUser.todos.unshift(removedTodo);
     foundUser.save(function(err, savedList){
-      res.json(savedList);
+      res.redirect('/home')
     })
   });
 });
