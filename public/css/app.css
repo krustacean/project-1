@@ -46,6 +46,10 @@ img.first-slide{
   text-shadow:  0 3px 4px rgba(0 , 0, 0, 0.8);
 }
 
+.first-slide{
+  padding-top: 30px;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
